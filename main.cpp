@@ -1,6 +1,9 @@
 #include <iostream>
+#include "Tour.hpp"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    Tour tour;
+
+    tour.initiliazeCarList("../cities.txt");
+
 }
