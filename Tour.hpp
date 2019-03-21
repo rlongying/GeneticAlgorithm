@@ -12,15 +12,14 @@
 class Tour {
 
 private:
-    int CITIES_IN_TOUR = 32;
-    std::vector<City> carList;
+    std::vector<City *> cityList;
+    double fitness;
 
 public:
-    /**
-     * initilize a list of cities from file
-     * @param filepath
-     */
-    void initiliazeCarList(std::string filepath);
+    Tour(std::vector<City *> list) : cityList(list){
+
+    }
+
 };
 
 
