@@ -17,6 +17,9 @@ private:
 public:
     City(std::string name, int x, int y) : name(name), x(x), y(y){}
 
+    double distance(City *other) const;
+
+    friend std::ostream& operator<<(std::ostream & os, const City & city);
 };
 
 

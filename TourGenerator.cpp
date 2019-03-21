@@ -7,32 +7,29 @@
 #include <fstream>
 #include "TourGenerator.hpp"
 
-std::default_random_engine TourGenerator::rng = std::default_random_engine {};
 
 void TourGenerator::initiliazeCarList(std::string filepath) {
     std::string line;
     std::ifstream in(filepath);
 
-//        while (std::getline(in, line)) {
-//            std::istringstream iss(line);
-//
     std::string cityName;
     int cityX;
     int cityY;
-//
-//
-//
-//        }
+
     while(in >> cityName >> cityX >> cityY){
-        std::cout << cityName << ", " << cityX << ", " << cityY << std::endl;
         this->masterList.push_back(City(cityName, cityX, cityY));
     }
 
 }
 
-void TourGenerator::generateRandomTour() {
+Tour TourGenerator::generateRandomTour() {
 
-    std::shuffle(masterList.begin(), masterList.end(), rng);
+    std::shuffle(cityIndex.begin(), cityIndex.end(), rng);
 
+    std::vector<City *> cityList;
+    for (int i = 0; i < masterList.size(); i ++) {
+        cityList.push_back(&masterList[cityIndex[i]]);
+    }
 
+    return Tour{cityList};
 }
