@@ -17,6 +17,11 @@ private:
 public:
     City(std::string name, int x, int y) : name(name), x(x), y(y){}
 
+    /**
+     * calculate the distance between two cities
+     * @param other another city to compare
+     * @return the distance in a absolute value
+     */
     double distance(City *other) const;
 
     friend std::ostream& operator<<(std::ostream & os, const City & city);

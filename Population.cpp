@@ -21,7 +21,7 @@ void Population::sort() {
               [](Tour &t1, Tour &t2) { return t1.getFitness() < t2.getFitness(); });
 }
 
-void Population::crossover(Tour &tour1, Tour &tour2) {
+Tour Population::crossover(Tour &tour1, Tour &tour2) {
 
 }
 
