@@ -8,18 +8,26 @@
 
 #include <vector>
 #include "Tour.hpp"
+#include "TourGenerator.hpp"
 
 class Population {
 private:
     std::vector<Tour> population;
+    int populationSize;
+    TourGenerator generator;
 
 public:
+
+
+    Population(int size, TourGenerator& generator);
 
     void sort();
 
     void crossover(Tour& tour1, Tour& tour2);
 
     void crosses();
+
+    Tour getTour(int index) const {return population[index];}
 
 };
 

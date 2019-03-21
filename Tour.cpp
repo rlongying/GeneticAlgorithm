@@ -11,10 +11,10 @@
 
 void Tour::mutate() {
 
-    updateFitnes();
 }
 
 std::ostream &operator<<(std::ostream &os, const Tour &tour) {
+
 //    os << &tour.cityList << " : ";
     for (int i = 0; i < tour.cityList.size(); i++) {
          os << *tour.cityList[i] << "  ";
@@ -24,7 +24,6 @@ std::ostream &operator<<(std::ostream &os, const Tour &tour) {
 
 void Tour::setCity(int index, City *city) {
     cityList[index] = city;
-    updateFitnes();
 }
 
 void Tour::updateFitnes() {
@@ -36,5 +35,11 @@ void Tour::updateFitnes() {
 
     //initial fitness
     fitness = SCALE_FACTOR / totalDistance;
+}
+
+void Tour::swap(Tour &lhs, Tour &rhs) {
+
+
+
 }
 
