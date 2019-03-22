@@ -19,7 +19,7 @@ Population::Population(TourGenerator &generator) : generator(generator) {
 void Population::sort() {
     std::sort(population.begin(),
               population.end(),
-              [](Tour &t1, Tour &t2) { return t1.getFitness() < t2.getFitness(); });
+              [](Tour &t1, Tour &t2) { return t1.getFitness() > t2.getFitness(); });
 }
 
 Tour Population::crossover(Tour tour1, const Tour &tour2) {
@@ -36,11 +36,11 @@ Tour Population::crossover(Tour tour1, const Tour &tour2) {
     int curPosTour1 = 0;
     while (curPosTour1 < seq1) {
 
-        City * city = tour2.getCity(posTour2);
-        if(!tour1.hasCity(seq1, seq2, city)){
+        City *city = tour2.getCity(posTour2);
+        if (!tour1.hasCity(seq1, seq2, city)) {
 
             tour1.setCity(curPosTour1, city);
-            curPosTour1 ++;
+            curPosTour1++;
         }
         posTour2++;
     }
@@ -49,11 +49,11 @@ Tour Population::crossover(Tour tour1, const Tour &tour2) {
     curPosTour1 = seq2 + 1;
     while (curPosTour1 < CITIES_IN_TOUR) {
 
-        City * city = tour2.getCity(posTour2);
-        if(!tour1.hasCity(seq1, seq2, city)){
+        City *city = tour2.getCity(posTour2);
+        if (!tour1.hasCity(seq1, seq2, city)) {
 
             tour1.setCity(curPosTour1, city);
-            curPosTour1 ++;
+            curPosTour1++;
         }
         posTour2++;
     }
@@ -65,16 +65,51 @@ Tour Population::crossover(Tour tour1, const Tour &tour2) {
 void Population::crosses() {
 
     std::vector<Tour> offsrpings;
-
-    //sort first
-    sort();
+//
+//    //sort first
+//    sort();
 
     //move elite to the first
     offsrpings.push_back(getTour(0));
+
+    for (int i = 1; i < POPULATION_SIZE; i++) {
+        Tour parent1 = selectParent();
+        Tour parent2 = selectParent();
+
+        offsrpings.push_back(crossover(parent1, parent2));
+    }
+
+   population = offsrpings;
+}
+
+Tour Population::selectParent() {
 
     myclock::duration d = myclock::now() - BEGINING_TIME;
     std::default_random_engine engine(d.count());
     std::uniform_int_distribution<int> indexGenerator(1, CITIES_IN_TOUR);
 
+    //get parent pool
+    int parents[PARENT_POOL_SIZE] = {};
+
+    for (int i = 0; i < PARENT_POOL_SIZE; i++) {
+        parents[i] = indexGenerator(engine);
+
+        for (int j = 0; j < i; j++) {
+            if(parents[j] == parents[i]){
+                i --;
+                break;
+            }
+        }
+    }
+
+    int fittest = 0;
+
+    for (int i = 1; i < PARENT_POOL_SIZE; i++) {
+        if(getTour(i).getFitness() > getTour(fittest).getFitness()){
+            fittest = i;
+        }
+    }
+
+    return getTour(fittest);
 }
 

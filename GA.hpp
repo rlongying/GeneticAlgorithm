@@ -1,0 +1,28 @@
+//
+// Created by Ivan on 2019-03-21.
+//
+
+#ifndef GENETICALGORITHM_GA_HPP
+#define GENETICALGORITHM_GA_HPP
+
+
+#include "Population.hpp"
+
+class GA {
+
+private:
+    TourGenerator tourGenerator;
+    Population population;
+    double baseDistance;
+
+public:
+    GA(std::string filename);
+
+    void run();
+
+    void report();
+
+};
+
+
+#endif //GENETICALGORITHM_GA_HPP

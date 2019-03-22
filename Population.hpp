@@ -45,6 +45,8 @@ public:
      */
     Tour& getTour(int index) {return population[index];}
 
+    Tour selectParent();
+
 };
 
 
