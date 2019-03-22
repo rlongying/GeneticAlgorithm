@@ -11,21 +11,21 @@ int main() {
 //
     Population population(POPULATION_SIZE, tourGenerator);
 
-//    for (int i = 0; i < POPULATION_SIZE; i++) {
-//        cout << "+++++++++++" << i << "+++++++++" << endl;
-//
-//        cout << population.getTour(i).getFitness() << " -> " << population.getTour(i) <<endl;
-//    }
-//
-//    population.sort();
-//
-//    cout << "after sort" << endl;
-//
-//    for (int i = 0; i < POPULATION_SIZE; i++) {
-//        cout << "+++++++++++" << i << "+++++++++" << endl;
-//
-//        cout << population.getTour(i).getFitness() << " -> " << population.getTour(i) <<endl;
-//    }
+    for (int i = 0; i < POPULATION_SIZE; i++) {
+        cout << "+++++++++++" << i << "+++++++++" << endl;
+
+        cout << population.getTour(i).getFitness() << " -> " << population.getTour(i) <<endl;
+    }
+
+    population.sort();
+
+    cout << "after sort" << endl;
+
+    for (int i = 0; i < POPULATION_SIZE; i++) {
+        cout << "+++++++++++" << i << "+++++++++" << endl;
+
+        cout << population.getTour(i).getFitness() << " -> " << population.getTour(i) <<endl;
+    }
 
 //    vector<Tour> tours;
 //

@@ -20,7 +20,6 @@ private:
     std::vector<City *> cityList;
     double fitness;
 
-
 public:
     Tour(std::vector<City *> list) : cityList(list), fitness(0) {}
 
@@ -35,19 +34,13 @@ public:
 //    }
 
 //    void swap(Tour& lhs, Tour& rhs);
-    /**
-     * calculate the fitness
-     */
-    void updateFitnes();
 
     /**
-     * update the fitness, and get the fitness of this tour
+     * get the fitness of this tour
      * @return fitness
      */
     double getFitness() {
-        //update only once right before trying to get the fitness
-        updateFitnes();
-        return fitness;
+        return SCALE_FACTOR / getTourDistance();;
     }
 
     /**
@@ -80,6 +73,8 @@ public:
     City* getCity(int pos) const {
         return cityList[pos];
     }
+
+    double getTourDistance() const;
 
     void swapCity(int first, int second);
 

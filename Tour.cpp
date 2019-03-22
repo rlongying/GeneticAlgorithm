@@ -35,17 +35,6 @@ void Tour::setCity(int index, City *city) {
     cityList[index] = city;
 }
 
-void Tour::updateFitnes() {
-    double totalDistance = 0;
-    auto it = cityList.begin();
-    for (it++; it != cityList.end(); it++) {
-        totalDistance += (*it)->distance(*(it - 1));
-    }
-
-    //initial fitness
-    fitness = SCALE_FACTOR / totalDistance;
-}
-
 void Tour::swapCity(int first, int second) {
     City *temp = cityList[first];
 
@@ -64,6 +53,15 @@ bool Tour::hasCity(int start, int end, City *city) const {
     }
 
     return hasFound;
+}
+
+double Tour::getTourDistance() const {
+    double totalDistance = 0;
+    auto it = cityList.begin();
+    for (it++; it != cityList.end(); it++) {
+        totalDistance += (*it)->distance(*(it - 1));
+    }
+    return totalDistance;
 }
 
 //void Tour::swap(Tour &lhs, Tour &rhs) {
