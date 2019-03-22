@@ -11,22 +11,21 @@ int main() {
 //
     Population population(POPULATION_SIZE, tourGenerator);
 
-    for (int i = 0; i < POPULATION_SIZE; i++) {
-        cout << "+++++++++++" << i << "+++++++++" << endl;
-
-        cout << population.getTour(i).getFitness() << " -> " << population.getTour(i) <<endl;
-    }
-
-    population.sort();
-
-    cout << "after sort" << endl;
-
-    for (int i = 0; i < POPULATION_SIZE; i++) {
-        cout << "+++++++++++" << i << "+++++++++" << endl;
-
-        cout << population.getTour(i).getFitness() << " -> " << population.getTour(i) <<endl;
-    }
-
+//    for (int i = 0; i < POPULATION_SIZE; i++) {
+//        cout << "+++++++++++" << i << "+++++++++" << endl;
+//
+//        cout << population.getTour(i).getFitness() << " -> " << population.getTour(i) <<endl;
+//    }
+//
+//    population.sort();
+//
+//    cout << "after sort" << endl;
+//
+//    for (int i = 0; i < POPULATION_SIZE; i++) {
+//        cout << "+++++++++++" << i << "+++++++++" << endl;
+//
+//        cout << population.getTour(i).getFitness() << " -> " << population.getTour(i) <<endl;
+//    }
 
 //    vector<Tour> tours;
 //
@@ -46,5 +45,11 @@ int main() {
 //
 //    cout << tours[POPULATION_SIZE - 1].getFitness() << " -> " << tours.at(POPULATION_SIZE - 1) <<endl;
 
+//    cout << population.getTour(0).getFitness() << " -> " << population.getTour(0) <<endl;
+//    cout << population.getTour(1).getFitness() << " -> " << population.getTour(1) <<endl;
+//    Tour tour = population.crossover(population.getTour(0), population.getTour(1));
+//    cout << tour.getFitness() << " -> " << tour << endl;
+//    tour.mutate();
+//    cout << tour.getFitness() << " -> " << tour;
 
 }

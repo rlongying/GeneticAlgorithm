@@ -24,6 +24,8 @@ public:
      */
     double distance(City *other) const;
 
+    std::string getName() const {return name;}
+
     friend std::ostream& operator<<(std::ostream & os, const City & city);
 };
 

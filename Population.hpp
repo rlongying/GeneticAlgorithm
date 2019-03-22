@@ -31,7 +31,7 @@ public:
      * @param tour1 parent 1
      * @param tour2 parent 2
      */
-    Tour crossover(Tour& tour1, Tour& tour2);
+    Tour crossover(Tour tour1, const Tour& tour2);
 
     /**
      * cross the tours in the populations
@@ -43,7 +43,7 @@ public:
      * @param index the position of the target tour in the population
      * @return an instance of tour
      */
-    Tour getTour(int index) const {return population[index];}
+    Tour& getTour(int index) {return population[index];}
 
 };
 
