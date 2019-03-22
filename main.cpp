@@ -5,11 +5,12 @@
 
 using namespace std;
 int main() {
-    const int POPULATION_SIZE = 32;
-//
+
     TourGenerator tourGenerator("../cities.txt");
-//
-    Population population(POPULATION_SIZE, tourGenerator);
+
+    Population population(tourGenerator);
+
+
 
     for (int i = 0; i < POPULATION_SIZE; i++) {
         cout << "+++++++++++" << i << "+++++++++" << endl;
@@ -26,30 +27,5 @@ int main() {
 
         cout << population.getTour(i).getFitness() << " -> " << population.getTour(i) <<endl;
     }
-
-//    vector<Tour> tours;
-//
-//    for (int i = 0; i < POPULATION_SIZE; i++) {
-//        Tour tour = tourGenerator.generateRandomTour();
-//        tours.push_back(tour);
-//
-//    }
-//
-//    for (int i = 0; i < POPULATION_SIZE; i++) {
-//        cout << "+++++++++++" << i << "+++++++++" << endl;
-//
-//        cout << tours[i].getFitness() << " -> " << tours.at(i) <<endl;
-//    }
-
-//    tours[POPULATION_SIZE - 1].setCity(1, new City("A", 1, 2));
-//
-//    cout << tours[POPULATION_SIZE - 1].getFitness() << " -> " << tours.at(POPULATION_SIZE - 1) <<endl;
-
-//    cout << population.getTour(0).getFitness() << " -> " << population.getTour(0) <<endl;
-//    cout << population.getTour(1).getFitness() << " -> " << population.getTour(1) <<endl;
-//    Tour tour = population.crossover(population.getTour(0), population.getTour(1));
-//    cout << tour.getFitness() << " -> " << tour << endl;
-//    tour.mutate();
-//    cout << tour.getFitness() << " -> " << tour;
 
 }

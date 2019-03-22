@@ -12,7 +12,6 @@
 
 class TourGenerator {
 private:
-    int CITIES_IN_TOUR;
     std::vector<City> masterList;
     std::vector<int> cityIndex;
     std::string filename;
@@ -23,8 +22,6 @@ private:
 public:
     TourGenerator(std::string filename) : filename(filename) {
         initiliazeCarList(filename);
-
-        this->CITIES_IN_TOUR = this->masterList.size();
 
         //initialize the index of city list
         for (int i = 0; i < CITIES_IN_TOUR; i++) {

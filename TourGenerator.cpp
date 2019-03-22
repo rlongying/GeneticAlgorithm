@@ -17,7 +17,7 @@ void TourGenerator::initiliazeCarList(std::string filepath) {
     int cityY;
 
     while(in >> cityName >> cityX >> cityY){
-        this->masterList.push_back(City(cityName, cityX, cityY));
+        masterList.push_back(City(cityName, cityX, cityY));
     }
 
 }
@@ -27,7 +27,7 @@ Tour TourGenerator::generateRandomTour() {
     std::shuffle(cityIndex.begin(), cityIndex.end(), rng);
 
     std::vector<City *> cityList;
-    for (int i = 0; i < masterList.size(); i ++) {
+    for (int i = 0; i < CITIES_IN_TOUR; i ++) {
         cityList.push_back(&masterList[cityIndex[i]]);
     }
 

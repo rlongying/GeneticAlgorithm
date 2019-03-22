@@ -10,16 +10,16 @@
 #include "Tour.hpp"
 #include "TourGenerator.hpp"
 
+
 class Population {
 private:
     std::vector<Tour> population;
-    int populationSize;
     TourGenerator generator;
 
 public:
 
 
-    Population(int size, TourGenerator& generator);
+    Population(TourGenerator& generator);
 
     /**
      * sort the population in ascending order by the fitness level of each tour

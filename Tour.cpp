@@ -9,13 +9,14 @@
 
 void Tour::mutate() {
 
-    myclock::duration d = myclock::now() - beginning;
+    myclock::duration d = myclock::now() - BEGINING_TIME;
     std::default_random_engine engine(d.count());
+
     std::uniform_real_distribution<double> perGenerator(0.0, 1.0);
 
-    for (int i = 1; i < cityList.size(); i++) {
+    for (int i = 1; i < CITIES_IN_TOUR; i++) {
         double percentage = perGenerator(engine);
-        if (percentage <= MUTATE_RATE) {
+        if (percentage <= MUTATION_RATE) {
             swapCity(i, i - 1);
         }
     }
@@ -25,7 +26,7 @@ void Tour::mutate() {
 std::ostream &operator<<(std::ostream &os, const Tour &tour) {
 
 //    os << &tour.cityList << " : ";
-    for (int i = 0; i < tour.cityList.size(); i++) {
+    for (int i = 0; i < CITIES_IN_TOUR; i++) {
         os << i << "-" << *tour.cityList[i] << "  ";
     }
     return os;

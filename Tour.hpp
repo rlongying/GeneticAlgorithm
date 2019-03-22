@@ -9,14 +9,12 @@
 #include <vector>
 #include <chrono>
 #include "City.hpp"
+#include "Constants.hpp"
 
 class Tour {
 
-    typedef std::chrono::high_resolution_clock myclock;
+
 private:
-    myclock::time_point beginning = myclock::now();
-    int  SCALE_FACTOR = 1000000;
-    double  MUTATE_RATE = 0.15;
     std::vector<City *> cityList;
     double fitness;
 
@@ -56,21 +54,15 @@ public:
     void mutate();
 
     /**
-     * get the number of cities in a tour
-     * @return
-     */
-    long size() const {return cityList.size();};
-
-    /**
      * test if city exist in the tour from start to end
      * @param start start index, included
      * @param end  end index, included
      * @param city  target city to find
      * @return  true, if found. otherwise, false
      */
-    bool hasCity(int start, int end, City * city) const;
+    bool hasCity(int start, int end, City *city) const;
 
-    City* getCity(int pos) const {
+    City *getCity(int pos) const {
         return cityList[pos];
     }
 
