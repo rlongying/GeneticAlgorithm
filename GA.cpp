@@ -5,8 +5,8 @@
 #include <iostream>
 #include "GA.hpp"
 
-GA::GA(std::string filename) :
-        tourGenerator(TourGenerator(filename)),
+GA::GA() :
+        tourGenerator(TourGenerator()),
         population(Population(tourGenerator)),
         baseDistance(0) {
 

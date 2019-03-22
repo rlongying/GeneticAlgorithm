@@ -14,20 +14,13 @@ class TourGenerator {
 private:
     std::vector<City> masterList;
     std::vector<int> cityIndex;
-    std::string filename;
-    std::default_random_engine rng = std::default_random_engine{};;
+    myclock::duration d = myclock::now() - BEGINING_TIME;
+    std::default_random_engine rng = std::default_random_engine(d.count());;
 
-    void initiliazeCarList(std::string filepath);
+    void initiliazeCarList();
 
 public:
-    TourGenerator(std::string filename) : filename(filename) {
-        initiliazeCarList(filename);
-
-        //initialize the index of city list
-        for (int i = 0; i < CITIES_IN_TOUR; i++) {
-            cityIndex.push_back(i);
-        }
-    }
+    TourGenerator();
 
     /**
      * initilize a list of cities from file

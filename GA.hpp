@@ -16,7 +16,7 @@ private:
     double baseDistance;
 
 public:
-    GA(std::string filename);
+    GA();
 
     void run();
 

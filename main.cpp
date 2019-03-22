@@ -1,15 +1,24 @@
+#include <iostream>
 #include "GA.hpp"
 
 using namespace std;
 int main() {
 
-    GA ga("../cities.txt");
+    GA ga;
     ga.run();
     ga.report();
 
 //    TourGenerator tourGenerator("../cities.txt");
 //
 //    Population population(tourGenerator);
+//    population.sort();
+//
+//    for (int i = 0; i < POPULATION_SIZE; i++) {
+//        cout << "+++++++++++" << i << "+++++++++" << endl;
+//        cout << population.getTour(i).getTourDistance() << endl;
+//        cout << population.getTour(i).getFitness() << " -> " << population.getTour(i) <<endl;
+//    }
+//
 //
 //    //move elite to front
 //    population.sort();

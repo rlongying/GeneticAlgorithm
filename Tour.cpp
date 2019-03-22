@@ -27,7 +27,7 @@ std::ostream &operator<<(std::ostream &os, const Tour &tour) {
 
 //    os << &tour.cityList << " : ";
     for (int i = 0; i < CITIES_IN_TOUR; i++) {
-        os << i << "-" << *tour.cityList[i] << "  ";
+        os << *tour.cityList[i] << "  ";
     }
     return os;
 }

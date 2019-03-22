@@ -10,7 +10,7 @@ typedef std::chrono::high_resolution_clock myclock;
 static const myclock::time_point BEGINING_TIME = myclock::now();
 
 static const int CITIES_IN_TOUR = 32;
-static const int POPULATION_SIZE = 32;
+static const int POPULATION_SIZE = 64;
 static const int SUFFLES = 64;
 static const int ITERATIONS = 1000;
 static const int MAP_BOUNDARY = 1000;
