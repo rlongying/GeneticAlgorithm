@@ -17,5 +17,6 @@ static const int MAP_BOUNDARY = 1000;
 static const int PARENT_POOL_SIZE = 5;
 static const double MUTATION_RATE = 0.15;
 static const long SCALE_FACTOR = 1000000;
+static const double IMPROVEMENT_RATE = 0.35;
 
 #endif //GENETICALGORITHM_CONSTANTS_HPP

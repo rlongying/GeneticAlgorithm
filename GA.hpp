@@ -14,6 +14,9 @@ private:
     TourGenerator tourGenerator;
     Population population;
     double baseDistance;
+    int count;
+    double improvement;
+    Tour baseRoute;
 
 public:
     GA();
